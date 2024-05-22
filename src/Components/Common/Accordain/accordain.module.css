@@ -1,0 +1,29 @@
+
+.accordion {
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 550px;
+  }
+  
+  .accordionheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    /* background-color: #f1f1f1; */
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+    color: rgba(27, 60, 116, 1);
+   
+  }
+  
+  .accordioncontent {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  

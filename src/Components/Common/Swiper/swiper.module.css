@@ -1,0 +1,50 @@
+
+.swiperContainer {
+    position: relative;
+    margin-top: 250px;
+    /* background-color: aqua; */
+    margin-left: 115px;
+    width: 1240px;
+    height: 250px;
+   
+
+  }
+  
+  .image {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #000;
+    bottom: 10px;
+    top: auto;
+    position: absolute;
+  }
+  
+  .swiper-button-prev {
+    left: 20px;
+  }
+  
+  .swiper-button-next {
+    right: 20px;
+  }
+  
+  .doctorslides{
+       height: 350px;
+       width: 350px;
+       cursor: pointer;
+       
+  } 
+
+  .swiperbox{
+
+    margin-top: 40px;
+    
+  }
+
+  

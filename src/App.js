@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar/navbar';
+import Landingpage from './Pages/Landingpage/landingpage';
+import Searchpage from './Pages/Searchpage/searchpage';
+import MyBookings from './Pages/Bookingpage/booking';
+import { SnackbarProvider } from 'notistack';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <SnackbarProvider maxSnack={2} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+      <Routes>
+        <Route path='/' element={<Landingpage/>}/>
+        <Route path='/search' element={<Searchpage/>} />
+        <Route path='/mybookings' element={<MyBookings/>} />
+        
+      </Routes>
+      </SnackbarProvider>
+    </Router>
   );
 }
 

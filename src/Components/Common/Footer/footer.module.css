@@ -1,0 +1,98 @@
+.accordaindiv{
+    display: flex;
+    gap: 100px;
+}
+
+.accoridan{
+    /* background-color: aqua; */
+    text-align: center;
+    height: 550px;
+}
+
+.h1info{
+    color: rgba(27, 60, 116, 1);
+    font-family: Poppins;
+font-size: 48px;
+font-weight: 600;
+line-height: 67px;
+text-align: center;
+
+}
+
+.acimage{
+
+    width: 600px;
+    height: 500px;
+    margin-left: 135px;
+    margin-top: 40px;
+}
+
+.Accordiontitle{
+    margin-top: 80px;
+}
+
+.App{
+    background-color: var( --primary-bg-color);
+    margin-top: 80px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    
+
+}
+
+.App img{
+    width: 1000px;
+    height: 550px;
+    margin-left: 135px;
+    
+    
+}
+
+.footer{
+    background-color: rgba(27, 60, 116, 1);
+    height: 350px;
+    display: flex;
+    gap: 350px;
+    align-items: center;
+}
+
+.footerdiv1{
+ 
+    margin-left: 135px;
+    width: 360px;
+    height: 245px;
+    
+}
+
+.footerdiv2{
+    
+    width: 650px;
+    display: flex;
+    height: 300px;
+    gap: 80px;
+    margin-top:  60px;
+    color: white;
+}
+
+.logo{
+    width: 120px;
+    height: 36px;
+
+}
+
+.icon{
+    display: flex;
+    margin-top: 150px;
+    gap:30px;
+    font-size: 40px;
+    color: aqua;
+    
+}
+
+.footerdiv2 ul li{
+  list-style-type: none;
+  margin-bottom: 20px;
+}
