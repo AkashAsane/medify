@@ -114,14 +114,14 @@ export default function Searchpage() {
 
                 <div className={styles.hospitaldetails2}>
                   <p>Available Today</p>
-                  <Button
-                    style="bookbtn"
+                  <button
+                    className={styles.bookbtn}
                     onClick={() => handleBookVisit(hospital)}
                   >
                     {selectedHospital === hospital && selectedSlot
                       ? "Confirm Booking"
                       : "Book Free Center Visit"}
-                  </Button>
+                  </button>
                 </div>
               </div>
               {selectedHospital === hospital && (
