@@ -19,7 +19,7 @@ export default function Navbar() {
       
       <nav className={styles.navbar}>
         <Link to="/">
-          <img src={logo} alt="" className={styles.logo} />
+          <img src={logo} alt="not found" className={styles.logo} />
         </Link>
 
         <ul>
