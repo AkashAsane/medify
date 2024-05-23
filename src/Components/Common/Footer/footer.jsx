@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 import acimage from "../../../Assest/accordain.png";
 import Accordion from "../Accordain/accordain";
 import app from "../../../Assest/app.png";
-import logo from "../../../Assest/navbarlogo.png";
+import logo from "../../../Assest/navlogo.png";
 import { FaInstagram } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { FaYoutube } from "react-icons/fa";

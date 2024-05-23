@@ -1,5 +1,5 @@
 import styles from "./navbar.module.css";
-import navbarlogo from "../../Assest/navbarlogo.png";
+
 import { Outlet, Link } from "react-router-dom";
 import Button from "../Button/button";
 import { useLocation } from "react-router-dom";
