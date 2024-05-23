@@ -137,3 +137,16 @@
     flex-direction: column;
     gap: 40px;
   }
+
+  .notfound{
+    width: 700px;
+    height: 200px;
+    margin-left: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 1);
+    font-family: Lato;
+    font-size: 40px;
+    font-weight: 800;
+  }

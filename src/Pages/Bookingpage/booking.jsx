@@ -77,7 +77,7 @@ export default function MyBookings() {
               </div>
             ))
           ) : (
-            <p>No bookings found</p>
+            <p className={styles.notfound}>No bookings found</p>
           )}
         </div>
         <img className={styles.image} src={health} alt="Health" />
