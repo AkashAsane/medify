@@ -18,9 +18,9 @@ export default function Navbar() {
 
       
       <nav className={styles.navbar}>
-        <a href="/">
-          <img src={logo} alt="Logo" className={styles.logo} />
-        </a>
+        <Link to="/">
+          <img src={logo} alt="not found" className={styles.logo} />
+        </Link>
 
         <ul>
           <li>
