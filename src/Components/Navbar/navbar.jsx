@@ -3,6 +3,7 @@ import navbarlogo from "../../Assest/navbarlogo.png";
 import { Outlet, Link } from "react-router-dom";
 import Button from "../Button/button";
 import { useLocation } from "react-router-dom";
+import logo from "../../Assest/navlogo.png"
 
 export default function Navbar() {
   const location = useLocation();
@@ -18,7 +19,7 @@ export default function Navbar() {
       
       <nav className={styles.navbar}>
         <Link to="/">
-          <img src={navbarlogo} alt="" className={styles.logo} />
+          <img src={logo} alt="" className={styles.logo} />
         </Link>
 
         <ul>
