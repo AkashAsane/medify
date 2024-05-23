@@ -59,6 +59,9 @@
 }
 
 
-/* .navbar ul li :hover{
-  border-bottom: 2px solid red;
-} */
+
+.navbar img {
+  width: 92px;
+  height: 27px;
+ 
+}
