@@ -43,6 +43,7 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
     e.preventDefault();
     if (state && city) {
       navigate(`/search?state=${state}&city=${city}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       enqueueSnackbar("Please enter both fields",{variant:"error"});
     }
