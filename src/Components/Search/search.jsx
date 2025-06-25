@@ -58,36 +58,50 @@ export default function Searchbox({ newwrap = "wrapper1", newsearch = "searchwra
   return (
     <div className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}>
       <form onSubmit={handleSearchClick}>
-        <div className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
-          {/* State Dropdown */}
-          <div id="state" className={styles.dropdown}>
-            <select value={state} onChange={handleStateChange}>
-              <option value="">Select State</option>
-              {statesList.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div
+  id="state"
+  className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}
+>
+  <label htmlFor="stateSelect">State</label>
+  <select
+    id="stateSelect"
+    value={state}
+    onChange={handleStateChange}
+  >
+    <option value="">Select State</option>
+    {statesList.map((state) => (
+      <option key={state} value={state}>
+        {state}
+      </option>
+    ))}
+  </select>
+</div>
 
-          {/* City Dropdown */}
-          <div id="city" className={styles.dropdown}>
-            <select value={city} onChange={(e) => setCity(e.target.value)}>
-              <option value="">Select City</option>
-              {citiesList.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
+<div
+  id="city"
+  className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}
+>
+  <label htmlFor="citySelect">City</label>
+  <select
+    id="citySelect"
+    value={city}
+    onChange={(e) => setCity(e.target.value)}
+  >
+    <option value="">Select City</option>
+    {citiesList.map((city) => (
+      <option key={city} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+</div>
+
 
           {/* Search Button */}
           <Button style="searchbtn" type="submit">
             Search
           </Button>
-        </div>
+        
 
         {/* Additional Suggestions */}
         {location.pathname !== "/search" && (
