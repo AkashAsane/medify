@@ -7,11 +7,9 @@ import store from "../../Assest/e.png";
 import ambulance from "../../Assest/h.png";
 import { React, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SnackbarProvider, enqueueSnackbar, useSnackbar } from "notistack";
-import search from "../../Assest/Search.png";
-import { IoMdSearch } from "react-icons/io";
+import { useSnackbar } from "notistack";
 
-export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwrapper",}) {
+export default function Searchbox({ newwrap = "wrapper1", newsearch = "searchwrapper" }) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -20,8 +18,9 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
   const [statesList, setStatesList] = useState([]);
   const [citiesList, setCitiesList] = useState([]);
 
-  const{enqueueSnackbar}=useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
+  // Fetch states on component mount
   useEffect(() => {
     fetch("https://meddata-backend.onrender.com/states")
       .then((response) => response.json())
@@ -29,84 +28,78 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
       .catch((error) => console.error("Error fetching states:", error));
   }, []);
 
+  // Fetch cities when a state is selected
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
     setState(selectedState);
+    setCity(""); // Clear the city dropdown
 
-    fetch(`https://meddata-backend.onrender.com/cities/${selectedState}`)
-      .then((response) => response.json())
-      .then((data) => setCitiesList(data))
-      .catch((error) => console.error("Error fetching cities:", error));
+    if (selectedState) {
+      fetch(`https://meddata-backend.onrender.com/cities/${selectedState}`)
+        .then((response) => response.json())
+        .then((data) => setCitiesList(data))
+        .catch((error) => console.error("Error fetching cities:", error));
+    } else {
+      setCitiesList([]); // Clear cities list if no state is selected
+    }
   };
 
+  // Handle search button click
   const handleSearchClick = (e) => {
     e.preventDefault();
     if (state && city) {
       navigate(`/search?state=${state}&city=${city}`);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      enqueueSnackbar("Please enter both fields",{variant:"error"});
+      enqueueSnackbar("Please select both state and city.", { variant: "error" });
     }
   };
 
   return (
-    <div
-      className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}
-    >
+    <div className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}>
       <form onSubmit={handleSearchClick}>
-        
-        <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
-  <select id="state-select" value={state} onChange={handleStateChange}>
-    <option value="">State</option>
-    {statesList.map((state) => (
-      <option key={state} value={state}>
-        {state}
-      </option>
-    ))}
-  </select>
-</div>
+        <div className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
+          {/* State Dropdown */}
+          <div id="state" className={styles.dropdown}>
+            <select value={state} onChange={handleStateChange}>
+              <option value="">Select State</option>
+              {statesList.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
 
-<div id="city" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
-  <select id="city-select" value={city} onChange={(e) => setCity(e.target.value)}>
-    <option value="">City</option>
-    {citiesList.map((city) => (
-      <option key={city} value={city}>
-        {city}
-      </option>
-    ))}
-  </select>
-</div>
+          {/* City Dropdown */}
+          <div id="city" className={styles.dropdown}>
+            <select value={city} onChange={(e) => setCity(e.target.value)}>
+              <option value="">Select City</option>
+              {citiesList.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
 
-          
+          {/* Search Button */}
           <Button style="searchbtn" type="submit">
             Search
           </Button>
-        
+        </div>
 
+        {/* Additional Suggestions */}
         {location.pathname !== "/search" && (
           <div className={styles.container}>
             <p className={styles.divp}>You may be looking for</p>
             <div className={styles.card}>
-              <div className={styles.cards}>
-                <img src={doctor} alt="logo" />
-                <p>Doctors</p>
-              </div>
-              <div className={styles.cards}>
-                <img src={labs} alt="logo" />
-                <p>Labs</p>
-              </div>
-              <div className={styles.cards}>
-                <img src={hospital} alt="logo" />
-                <p>Hospitals</p>
-              </div>
-              <div className={styles.cards}>
-                <img src={store} alt="logo" />
-                <p>Medical Store</p>
-              </div>
-              <div className={styles.cards}>
-                <img src={ambulance} alt="logo" />
-                <p>Ambulance</p>
-              </div>
+              {[doctor, labs, hospital, store, ambulance].map((icon, index) => (
+                <div key={index} className={styles.cards}>
+                  <img src={icon} alt={`option-${index}`} />
+                  <p>{["Doctors", "Labs", "Hospitals", "Medical Store", "Ambulance"][index]}</p>
+                </div>
+              ))}
             </div>
           </div>
         )}
