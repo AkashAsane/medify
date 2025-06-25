@@ -54,30 +54,32 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
       className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}
     >
       <form onSubmit={handleSearchClick}>
-        <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
-          <select value={state} onChange={handleStateChange}>
-            <option value=""> State</option>
-            {statesList.map((state) => (
-              <option key={state} value={state}>
-                {state}
-              </option>
-            ))}
-          </select>
-          <div id="city">
-              <select value={city} onChange={(e) => setCity(e.target.value)}>
-            <option value="">City</option>
-            {citiesList.map((city) => (
-              <option key={city} value={city}>
-                {city}
-              </option>
-            ))}
-          </select>
-          </div>
-          
+      <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
+  <select id="state-select" value={state} onChange={handleStateChange}>
+    <option value="">State</option>
+    {statesList.map((state) => (
+      <option key={state} value={state}>
+        {state}
+      </option>
+    ))}
+  </select>
+</div>
+
+<div id="city" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
+  <select id="city-select" value={city} onChange={(e) => setCity(e.target.value)}>
+    <option value="">City</option>
+    {citiesList.map((city) => (
+      <option key={city} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+</div>
+
           <Button style="searchbtn" type="submit">
             Search
           </Button>
-        </div>
+        
 
         {location.pathname !== "/search" && (
           <div className={styles.container}>
