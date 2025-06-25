@@ -63,6 +63,7 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
               </li>
             ))}
           </select>
+          </div>
           
           <div id="city">
               <select value={city} onChange={(e) => setCity(e.target.value)}>
@@ -78,7 +79,7 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
           <Button style="searchbtn" type="submit">
             Search
           </Button>
-        </div>
+
 
         {location.pathname !== "/search" && (
           <div className={styles.container}>
