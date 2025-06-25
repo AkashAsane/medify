@@ -54,21 +54,23 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
       className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}
     >
       <form onSubmit={handleSearchClick}>
-        <div className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
-        <select id="state" value={state} onChange={handleStateChange}>
-  <option value="">State</option>
-  {statesList.map((state) => (
-    <option key={state} value={state}>{state}</option>
-  ))}
-</select>
-
-<select id="city" value={city} onChange={(e) => setCity(e.target.value)}>
-  <option value="">City</option>
-  {citiesList.map((city) => (
-    <option key={city} value={city}>{city}</option>
-  ))}
-</select>
-
+        <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
+          <select value={state} onChange={handleStateChange}>
+            <option value=""> State</option>
+            {statesList.map((state) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
+          <select value={city} onChange={(e) => setCity(e.target.value)}>
+            <option value="">City</option>
+            {citiesList.map((city) => (
+              <option key={city} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
           <Button style="searchbtn" type="submit">
             Search
           </Button>
