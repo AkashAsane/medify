@@ -54,7 +54,8 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
       className={`${styles.searchwrapper} ${newsearch && styles[newsearch]}`}
     >
       <form onSubmit={handleSearchClick}>
-      <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
+        
+        <div id="state" className={`${styles.wrapper1} ${newwrap && styles[newwrap]}`}>
   <select id="state-select" value={state} onChange={handleStateChange}>
     <option value="">State</option>
     {statesList.map((state) => (
@@ -76,6 +77,7 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
   </select>
 </div>
 
+          
           <Button style="searchbtn" type="submit">
             Search
           </Button>
