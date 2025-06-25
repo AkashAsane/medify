@@ -63,7 +63,8 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
               </option>
             ))}
           </select>
-          <select value={city} onChange={(e) => setCity(e.target.value)}>
+          <div id="city">
+              <select value={city} onChange={(e) => setCity(e.target.value)}>
             <option value="">City</option>
             {citiesList.map((city) => (
               <option key={city} value={city}>
@@ -71,6 +72,8 @@ export default function Searchbox({newwrap = "wrapper1",  newsearch = "searchwra
               </option>
             ))}
           </select>
+          </div>
+          
           <Button style="searchbtn" type="submit">
             Search
           </Button>
